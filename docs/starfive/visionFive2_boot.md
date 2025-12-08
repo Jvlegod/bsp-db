@@ -1,8 +1,8 @@
-# visionFive2 镜像烧录
+# 固件和镜像烧录
 
 ## 1 硬件准备
 
-- visionFive2 单板计算机
+- visionFive2 / Milkv Mars 单板计算机
 
 - 供电线
 
@@ -37,6 +37,8 @@ Archive:  firmware-starfive-jh7110.zip
 ## 3 烧录
 
 ### 3.1 固件烧录
+
+#### 3.1.1 starFive2
 
 将按钮切换至如图, 为 SD 卡启动.
 
@@ -81,6 +83,22 @@ mmc1 is current device
 device 0 offset 0x0, size 0x400000
 0 bytes written, 4194304 bytes skipped in 0.730s, speed 4194304 B/s
 ```
+
+#### 3.1.2 Milkv Mars
+
+切换至 SD 卡启动.
+
+| GPIO1 | GPIO0 | Mode |
+| --- | --- | --- |
+| 0 | 0 | Flash |
+| 0 | 1 | SD-card |
+| 1 | 0 | eMMC |
+| 1 | 1 | UART |
+
+
+之后保持 SD 卡启动上电, 图中的圈会闪烁3次, 之后保持常亮, 代表烧录成功.
+
+之后接入串口, 如图, 从上到下依次为开发板引脚的 `GND`, `TX`, `RX`. 此时观察启动情况.
 
 ### 3.2 系统烧录
 

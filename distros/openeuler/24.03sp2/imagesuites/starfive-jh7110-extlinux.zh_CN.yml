@@ -15,11 +15,12 @@
   flavor: 无桌面镜像
   _compatible_:
     - &vf2 !fref /products/starfive/visionfive2.zh_CN.yml
+    - &mars !fref /products/milkv/mars.zh_CN.yml
   revisions:
     - date: 2025-11-21
       status: 测试版
       changelog: ""
-      compatible: [ *vf2 ]
+      compatible: [ *vf2, *mars ]
       files:
         - url: https://repo.tarsier-infra.isrc.ac.cn/openEuler-RISC-V/BSP/starfive-jh7110/system-image/20251121-01/openEuler-24.03-LTS-SP2-base-StarFive-JH7110-extlinux.img.zst
           tags:
@@ -33,4 +34,4 @@
             sha256: f646b3f134baa1bb9e7dc145ce4d4955235995b371df12e58011da1a5af5ba66
       docs:
         - file: !fref /docs/starfive/visionFive2_boot.md
-          exclusive: [ *vf2 ]
+          exclusive: [ *vf2, *mars ]
